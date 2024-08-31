@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  redis-svc:
+    image: "redis:latest"
+    container_name: redis-svc
+    ports:
+      - "6379:6379"
+
+  mysql-svc:
+    image: mysql:latest
+    container_name: mysql-svc
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: grocerydb
+    ports:
+      - "3306:3306"
