@@ -1,6 +1,45 @@
 # Cache-aside pattern
+This repo
+* Explains the cache-aside pattern, also known as lazy loading.
+* Provides an example of implementing this pattern using **Python**, **Flask**, **Redis** and **MySQL**.
 
-This is an example of implementing cach-aside pattern using python, flask, redis and mysql.
+## Context
+
+Cache-aside pattern is one of the most common caching patterns. It works as following:
+
+- **Read from cache**: the application first checks if the requested data is present in the cache.
+- **Cache miss**: if the data is not found (cache miss), the application then queries the database to retrieve the data.
+- **Populate cache**: once the data is fetched from the database, it is populated to the cache for future access.
+- **Return data**: the data is then returned to the client.
+
+Below is the sequence diagram illustrating the process flow:
+
+```mermaid
+    sequenceDiagram
+        actor User
+        participant Application
+        participant Cache
+        participant Database
+        User ->> Application: Get data
+        Application ->> Cache: Get data
+        Cache -->> Application: 
+        alt cache miss
+            Application ->> Database: Get data
+            Database -->> Application: 
+            Application ->> Cache: Write data
+            Cache -->> Application: 
+        end
+        Application ->> User: Return data
+```
+
+#### Pros:
+*
+
+#### Cons:
+*
+
+#### When to choose this pattern:
+*
 
 ## How to run this example:
 
