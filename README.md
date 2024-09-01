@@ -50,7 +50,7 @@ Below is the sequence diagram illustrating the process flow:
 
 ## How to run this example:
 
-* Clone this repository to your machine.
+* Clone this repository to your machine `git clone git@github.com:Rodwan-Bakkar/cache-aside-pattern.git`
 * Create a virtual environment `virtualenv -p python3 .venv`
 * Activate the virtual environment `source .venv/bin/activate`
 * Install dependencies `pip install -r requirements.txt`
