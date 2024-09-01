@@ -7,10 +7,10 @@ This repo
 
 Cache-aside pattern is one of the most common caching patterns. It works as following:
 
-- **Read from cache**: the application first checks if the requested data is present in the cache.
-- **Cache miss**: if the data is not found (cache miss), the application then queries the database to retrieve the data.
-- **Populate cache**: once the data is fetched from the database, it is populated to the cache for future access.
-- **Return data**: the data is then returned to the client.
+- **Read from cache**: The application first checks if the requested data is present in the cache.
+- **Cache miss**: If the data is not found (cache miss), the application then queries the database to retrieve the data.
+- **Populate cache**: Once the data is fetched from the database, it is populated to the cache for future access.
+- **Return data**: The data is then returned to the client.
 
 Below is the sequence diagram illustrating the process flow:
 
@@ -29,17 +29,24 @@ Below is the sequence diagram illustrating the process flow:
             Application ->> Cache: Write data
             Cache -->> Application: 
         end
-        Application ->> User: Return data
+        Application -->> User: Return data
 ```
 
-#### Pros:
-*
+#### Some advantages:
 
-#### Cons:
-*
+* Control: The application has full control over when to read from the cache and when to update it.
+* Resilience: If the cache layer fails, the application can still access data from the database.
+* Different data models for cache and database can be used.
 
-#### When to choose this pattern:
-*
+#### Some disadvantages:
+
+* It is the responsibility of the developer to manage the cache and its invalidation in the application code.
+* Slow start with cold cache: Cold cache is when the cache is empty in the start and there will be a lot of initial cache misses which will increase latency.
+
+#### Some use cases:
+
+* Read-heavy data: If the application performs many more reads than writes.
+* Data that does not change frequently: In this case there is no need for constant cache updates.
 
 ## How to run this example:
 
